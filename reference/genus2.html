@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Screeplot of percent of overall X variance captured by component — screeplot.SCGLRTHM • SCGLR</title>
+<title>Sample dataset of abundance of genera in tropical moist forest — genus2 • SCGLR</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,14 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Screeplot of percent of overall X variance captured by component — screeplot.SCGLRTHM" />
-<meta property="og:description" content="Screeplot of percent of overall X variance captured by component by theme" />
+<meta property="og:title" content="Sample dataset of abundance of genera in tropical moist forest — genus2" />
+<meta property="og:description" content="genus2 gives the abundance of 15 common tree genera in the tropical moist forest
+of the Congo-Basin and 46 geo-referenced environmental variables on one thousand 8 by 8 km plots
+ (observations). Each plot's data was obtained by aggregating the data measured on a variable
+ number of previously sampled 0.5 ha sub-plots. Geo-referenced environmental variables were
+ used to describe the physical factors as well as vegetation characteristics.
+ 23 physical factors were used pertaining the description of topography, geology and rainfall
+ of each plot. Vegetation is characterized through 16-days enhanced vegetation index (EVI) data." />
 
 
 
@@ -128,34 +134,53 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Screeplot of percent of overall X variance captured by component</h1>
-    <small class="dont-index">Source: <a href='https://github.com/SCnext/SCGLR/blob/master/R/plot.r'><code>R/plot.r</code></a></small>
-    <div class="hidden name"><code>screeplot.SCGLRTHM.Rd</code></div>
+    <h1>Sample dataset of abundance of genera in tropical moist forest</h1>
+    <small class="dont-index">Source: <a href='https://github.com/SCnext/SCGLR/blob/master/R/genus2.R'><code>R/genus2.R</code></a></small>
+    <div class="hidden name"><code>genus2.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Screeplot of percent of overall X variance captured by component by theme</p>
+    <p>genus2 gives the abundance of 15 common tree genera in the tropical moist forest
+of the Congo-Basin and 46 geo-referenced environmental variables on one thousand 8 by 8 km plots
+ (observations). Each plot's data was obtained by aggregating the data measured on a variable
+ number of previously sampled 0.5 ha sub-plots. Geo-referenced environmental variables were
+ used to describe the physical factors as well as vegetation characteristics.
+ 23 physical factors were used pertaining the description of topography, geology and rainfall
+ of each plot. Vegetation is characterized through 16-days enhanced vegetation index (EVI) data.</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for SCGLRTHM</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/screeplot.html'>screeplot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>object of class 'SCGLRTHM', usually a result of running <code>theme</code>.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>optional arguments.</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>an object of class ggplot.</p>
+    
+<table class='table'>
+<tr><td><code>gen1 to gen15</code></td><td>abundance of 15 common genera.</td></tr>
+<tr><td><code>evi_1 to evi_23</code></td><td>16-days enhanced vegetation indexes.</td></tr>
+<tr><td><code>MIR and NIR</code></td><td>Middle-Infrared and Near-Infrared channels.</td></tr>
+<tr><td><code>pluvio_an</code></td><td>mean annual rainfall.</td></tr>
+<tr><td><code>pluvio_1 to pluvio_12</code></td><td>monthly rainfalls.</td></tr>
+<tr><td><code>altitude</code></td><td>above-sea level in meters.</td></tr>
+<tr><td><code>mois_sec_50 and mois_sec_50</code></td><td>???</td></tr>
+<tr><td><code>CWD, awd and mcwd</code></td><td>???</td></tr>
+<tr><td><code>wetness</code></td><td>???</td></tr>
+<tr><td><code>center_x and center_y</code></td><td>longitude and latitude of the plot centers.</td></tr>
+<tr><td><code>geology</code></td><td>5-level geological substrate.</td></tr>
+<tr><td><code>inventory</code></td><td>forest concession id number.</td></tr>
+<tr><td><code>surface</code></td><td>sampled area.</td></tr>
+</table>
+
+
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>The use of this dataset for publication must make reference to the CoForChange project.</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>S. Gourlet-Fleury et al. (2009--2014) CoForChange project: <a href='http://www.coforchange.eu/'>http://www.coforchange.eu/</a></p>
+<p>C. Garcia et al. (2013--2015) CoForTips project: <a href='http://www.cofortips.org/'>http://www.cofortips.org/</a></p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>CoForChange project</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

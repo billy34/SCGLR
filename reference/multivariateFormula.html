@@ -94,6 +94,18 @@ For interactions between two quantitative variables, use I(x*y) as usual." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/mixedSCGLR.html">Mixed SCGLR example</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -129,7 +141,7 @@ For interactions between two quantitative variables, use I(x*y) as usual." />
 For interactions between two quantitative variables, use <code><a href='https://rdrr.io/r/base/AsIs.html'>I(x*y)</a></code> as usual.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>multivariateFormula</span>(<span class='no'>Y</span>, <span class='kw'>X</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>A</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>additional</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>multivariateFormula</span><span class='op'>(</span><span class='va'>Y</span>, X <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span>, A <span class='op'>=</span> <span class='cn'>NULL</span>, additional <span class='op'>=</span> <span class='cn'>NULL</span>, data <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,26 +177,27 @@ For interactions between two quantitative variables, use <code><a href='https://
     <p>an object of class <code>MultivariateFormula, Formula, formula</code> with additional attributes: Y, X, A, X_vars, Y_vars,A_vars,XA_vars, YXA_vars, additional</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>If Y is given as a formula, groups of covariates must be separated by <code>|</code> (pipes). To declare last
-group as additional covariates, one can use <code>||</code> (double pipes) as last group separator or set
+    <p>If Y is given as a formula, groups of covariates must be separated by <code><a href='https://rdrr.io/r/base/Logic.html'>|</a></code> (pipes). To declare last
+group as additional covariates, one can use <code><a href='https://rdrr.io/r/base/Logic.html'>||</a></code> (double pipes) as last group separator or set
 <code>additional</code> parameter as <code>TRUE</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'># build multivariate formula</span>
-<span class='no'>ny</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"y1"</span>,<span class='st'>"y2"</span>)
-<span class='no'>nx1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"x11"</span>,<span class='st'>"x12"</span>)
-<span class='no'>nx2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"x21"</span>,<span class='st'>"x22"</span>)
-<span class='no'>nadd</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"add1"</span>,<span class='st'>"add2"</span>)
-<span class='no'>form</span> <span class='kw'>&lt;-</span> <span class='fu'>multivariateFormula</span>(<span class='no'>ny</span>,<span class='no'>nx1</span>,<span class='no'>nx2</span>,<span class='no'>nadd</span>,<span class='kw'>additional</span><span class='kw'>=</span><span class='no'>T</span>)
-<span class='no'>form2</span> <span class='kw'>&lt;-</span> <span class='fu'>multivariateFormula</span>(<span class='no'>ny</span>,<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>nx1</span>,<span class='no'>nx2</span>,<span class='no'>nadd</span>),<span class='kw'>additional</span><span class='kw'>=</span><span class='no'>T</span>)
-<span class='no'>form3</span> <span class='kw'>&lt;-</span> <span class='fu'>multivariateFormula</span>(<span class='no'>ny</span>,<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>nx1</span>,<span class='no'>nx2</span>),<span class='kw'>A</span><span class='kw'>=</span><span class='no'>nadd</span>)
-<span class='no'>form4</span> <span class='kw'>&lt;-</span> <span class='fu'>multivariateFormula</span>(<span class='no'>y1</span>+<span class='no'>y2</span>~<span class='no'>x11</span>+<span class='no'>x12</span><span class='kw'>|</span><span class='no'>x21</span>+<span class='no'>x22</span><span class='kw'>||</span><span class='no'>add1</span>+<span class='no'>add2</span>)
+<span class='va'>ny</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"y1"</span>,<span class='st'>"y2"</span><span class='op'>)</span>
+<span class='va'>nx1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"x11"</span>,<span class='st'>"x12"</span><span class='op'>)</span>
+<span class='va'>nx2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"x21"</span>,<span class='st'>"x22"</span><span class='op'>)</span>
+<span class='va'>nadd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"add1"</span>,<span class='st'>"add2"</span><span class='op'>)</span>
+<span class='va'>form</span> <span class='op'>&lt;-</span> <span class='fu'>multivariateFormula</span><span class='op'>(</span><span class='va'>ny</span>,<span class='va'>nx1</span>,<span class='va'>nx2</span>,<span class='va'>nadd</span>,additional<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
+<span class='va'>form2</span> <span class='op'>&lt;-</span> <span class='fu'>multivariateFormula</span><span class='op'>(</span><span class='va'>ny</span>,<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>nx1</span>,<span class='va'>nx2</span>,<span class='va'>nadd</span><span class='op'>)</span>,additional<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
+<span class='va'>form3</span> <span class='op'>&lt;-</span> <span class='fu'>multivariateFormula</span><span class='op'>(</span><span class='va'>ny</span>,<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>nx1</span>,<span class='va'>nx2</span><span class='op'>)</span>,A<span class='op'>=</span><span class='va'>nadd</span><span class='op'>)</span>
+<span class='va'>form4</span> <span class='op'>&lt;-</span> <span class='fu'>multivariateFormula</span><span class='op'>(</span><span class='va'>y1</span><span class='op'>+</span><span class='va'>y2</span><span class='op'>~</span><span class='va'>x11</span><span class='op'>+</span><span class='va'>x12</span><span class='op'>|</span><span class='va'>x21</span><span class='op'>+</span><span class='va'>x22</span><span class='op'>||</span><span class='va'>add1</span><span class='op'>+</span><span class='va'>add2</span><span class='op'>)</span>
 <span class='co'># Print formulas</span>
-<span class='no'>form</span>
-<span class='no'>form2</span>
-<span class='no'>form3</span>
-}</div></pre>
+<span class='va'>form</span>
+<span class='va'>form2</span>
+<span class='va'>form3</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -196,11 +209,11 @@ group as additional covariates, one can use <code>||</code> (double pipes) as la
 
       <footer>
       <div class="copyright">
-  <p>Developed by Guillaume Cornu, Frederic Mortier, Catherine Trottier, Xavier Bry.</p>
+  <p>Developed by Guillaume Cornu, Frederic Mortier, Catherine Trottier, Xavier Bry, Jocelyn Chauvet.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
