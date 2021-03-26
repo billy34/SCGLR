@@ -84,7 +84,7 @@ This function performs a simple GLM fit for each dependent variable with the ass
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -104,6 +104,12 @@ This function performs a simple GLM fit for each dependent variable with the ass
     <li>
       <a href="../articles/mixedSCGLR.html">Mixed SCGLR example</a>
     </li>
+    <li>
+      <a href="../articles/parallelization.html">How to use parallelization</a>
+    </li>
+    <li>
+      <a href="../articles/progression.html">How display progression</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -113,7 +119,7 @@ This function performs a simple GLM fit for each dependent variable with the ass
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/SCnext/SCGLR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -214,7 +220,7 @@ ncol(size) must be equal to the number of Binomial variables.</p></td>
 <span class='va'>pred.scglr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='multivariatePredictGlm.html'>multivariatePredictGlm</a></span><span class='op'>(</span><span class='va'>xnew</span>,family<span class='op'>=</span><span class='va'>fam</span>,
  beta<span class='op'>=</span><span class='va'>genus.scglr</span><span class='op'>$</span><span class='va'>beta</span>, offset<span class='op'>=</span><span class='va'>genus</span><span class='op'>$</span><span class='va'>surface</span><span class='op'>[</span><span class='va'>sub</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>cor.scglr</span> <span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>pred.scglr</span>,<span class='va'>genus</span><span class='op'>[</span><span class='va'>sub</span>,<span class='va'>ny</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cor.scglr</span>, col<span class='op'>=</span><span class='st'>"red"</span>,ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>cor.scglr</span>, col<span class='op'>=</span><span class='st'>"red"</span>,ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># prediction based on classical poisson glm</span>
 <span class='va'>X</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/model.matrix.html'>model.matrix</a></span><span class='op'>(</span><span class='va'>form</span>, data<span class='op'>=</span><span class='va'>genus</span><span class='op'>)</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>

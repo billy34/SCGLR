@@ -82,7 +82,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -102,6 +102,12 @@
     <li>
       <a href="../articles/mixedSCGLR.html">Mixed SCGLR example</a>
     </li>
+    <li>
+      <a href="../articles/parallelization.html">How to use parallelization</a>
+    </li>
+    <li>
+      <a href="../articles/progression.html">How display progression</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -111,7 +117,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/SCnext/SCGLR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -138,7 +144,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for SCGLR</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, style <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"plot.SCGLR"</span><span class='op'>)</span>, plane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, style <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"plot.SCGLR"</span><span class='op'>)</span>, plane <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,7 +163,8 @@
     </tr>
     <tr>
       <th>plane</th>
-      <td><p>a size-2 vector (or comma separated string) indicating which components are plotted (eg: c(1,2) or "1,2").</p></td>
+      <td><p>a size-2 vector (or string with separator) indicating which components 
+are plotted (eg: c(1,2) or "1,2" or "1/2").</p></td>
     </tr>
     </table>
 
@@ -195,9 +202,9 @@
 
 <span class='fu'><a href='https://rdrr.io/r/graphics/barplot.html'>barplot</a></span><span class='op'>(</span><span class='va'>genus.scglr</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>genus.scglr</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>genus.scglr</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>genus.scglr</span>, predictors<span class='op'>=</span><span class='cn'>TRUE</span>, factor<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>genus.scglr</span>, predictors<span class='op'>=</span><span class='cn'>TRUE</span>, factor<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>genus.scglr</span><span class='op'>)</span>
 

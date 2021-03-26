@@ -82,7 +82,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -102,6 +102,12 @@
     <li>
       <a href="../articles/mixedSCGLR.html">Mixed SCGLR example</a>
     </li>
+    <li>
+      <a href="../articles/parallelization.html">How to use parallelization</a>
+    </li>
+    <li>
+      <a href="../articles/progression.html">How display progression</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -111,7 +117,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/SCnext/SCGLR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -149,7 +155,8 @@
   na.action <span class='op'>=</span> <span class='va'>na.omit</span>,
   crit <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
   method <span class='op'>=</span> <span class='fu'><a href='methodSR.html'>methodSR</a></span><span class='op'>(</span><span class='op'>)</span>,
-  mc.cores <span class='op'>=</span> <span class='fl'>1</span>
+  <span class='va'>nfolds</span>,
+  <span class='va'>mc.cores</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -174,7 +181,7 @@
     <tr>
       <th>folds</th>
       <td><p>number of folds, default is 10.
-Although kfolds can be as large as the sample size (leave-one-out CV),
+Although folds can be as large as the sample size (leave-one-out CV),
 it is not recommended for large datasets.
 folds can also be provided as a vector (same length as data) of fold identifiers.</p></td>
     </tr>
@@ -211,8 +218,12 @@ the tolerance convergence criterion for the Fisher scoring algorithm. Default is
 built by <code><a href='methodSR.html'>methodSR</a></code> for Structural Relevance.</p></td>
     </tr>
     <tr>
+      <th>nfolds</th>
+      <td><p>deprecated. Use <code>fold</code> parameter instead.</p></td>
+    </tr>
+    <tr>
       <th>mc.cores</th>
-      <td><p>max number of cores to use when using parallelization (Not available in windows yet and strongly discouraged if in interactive mode).</p></td>
+      <td><p>deprecated</p></td>
     </tr>
     </table>
 
@@ -251,7 +262,7 @@ built by <code><a href='methodSR.html'>methodSR</a></code> for Structural Releva
  offset<span class='op'>=</span><span class='va'>genus</span><span class='op'>$</span><span class='va'>surface</span><span class='op'>)</span>
 
 <span class='co'># find best K</span>
-<span class='va'>mean.crit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>cv</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>mean.crit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>genus.cv</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>#plot(mean.crit, type="l")</span>
 <span class='op'>}</span>

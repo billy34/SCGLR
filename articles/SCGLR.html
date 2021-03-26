@@ -40,7 +40,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -60,6 +60,12 @@
 <li>
       <a href="../articles/mixedSCGLR.html">Mixed SCGLR example</a>
     </li>
+    <li>
+      <a href="../articles/parallelization.html">How to use parallelization</a>
+    </li>
+    <li>
+      <a href="../articles/progression.html">How display progression</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -69,7 +75,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/SCnext/SCGLR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -83,8 +89,7 @@
 
       
 
-      </header><script src="SCGLR_files/header-attrs-2.5/header-attrs.js"></script><link href="SCGLR_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="SCGLR_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="SCGLR_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to scglr</h1>
@@ -100,9 +105,12 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scnext.github.io/SCGLR">SCGLR</a></span><span class="op">)</span>
-
-<span class="co"># load sample data</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scnext.github.io/SCGLR">SCGLR</a></span><span class="op">)</span></code></pre></div>
+<pre><code>## Registered S3 method overwritten by 'plsdepot':
+##   method       from
+##   print.nipals ade4</code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># load sample data</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">genus</span><span class="op">)</span>
 
 <span class="co"># get variable names from dataset</span>
@@ -126,7 +134,7 @@
 <div id="display-a-summary-of-results" class="section level1">
 <h1 class="hasAnchor">
 <a href="#display-a-summary-of-results" class="anchor"></a>Display a summary of results</h1>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">genus.scglr</span><span class="op">)</span></code></pre></div>
 <pre><code>## Squared correlations with numerical covariates (in decreasing order):
 ##                   sc1      sc2       sc3       sc4  best_plane  best_val
@@ -204,7 +212,7 @@
 ## Coefficients for dependant variables:
 ##                 gen1    gen2    gen3    gen4    gen5     gen6    gen7    gen8
 ## (intercept) -1.13391 -2.4178 -3.1632 -2.3851 -2.4478 -2.87852 -1.1772 -0.1396
-## sc1         -0.00354  0.1071  0.1725  0.1978  0.0687  0.00139  0.0622 -0.0212
+## sc1          0.00354 -0.1071 -0.1725 -0.1978 -0.0687 -0.00139 -0.0622  0.0212
 ## sc2         -0.10061  0.1762  0.1504  0.0778  0.0736  0.05385  0.1449  0.0168
 ## sc3          0.00569  0.1324  0.1194 -0.0426 -0.1424 -0.08216 -0.0101  0.2623
 ## sc4         -0.18554  0.0197 -0.2222 -0.1781  0.1495  0.10676  0.0651 -0.0842
@@ -214,7 +222,7 @@
 ## geology6    -0.26108  0.4777  0.3120 -1.4617 -0.3235  0.61212 -0.3824 -0.4185
 ##                 gen9   gen10    gen11    gen12    gen13  gen14   gen15   gen16
 ## (intercept) -2.51093  1.0455  0.81833  0.33917  0.58020 -1.352 -2.0073 -1.9672
-## sc1         -0.00569 -0.1176  0.07320  0.03545  0.03029  0.121  0.1284  0.2184
+## sc1          0.00569  0.1176 -0.07320 -0.03545 -0.03029 -0.121 -0.1284 -0.2184
 ## sc2         -0.06375 -0.0948  0.04274  0.04165  0.00856  0.019  0.0961  0.0400
 ## sc3          0.10393  0.1060  0.00264  0.00194 -0.01921 -0.155 -0.1758 -0.1395
 ## sc4         -0.11436 -0.1530 -0.07306  0.04344 -0.04223  0.172  0.1448 -0.1141
@@ -224,7 +232,7 @@
 ## geology6     0.63890 -0.8604  0.03874 -0.48033 -0.11401  1.082  0.5012  0.4271
 ##                gen17   gen18   gen19   gen20    gen21   gen22   gen23   gen24
 ## (intercept) -2.45334 -4.1827 -0.2651 -1.8914 -1.09273 -3.2709 -0.9284 -0.4525
-## sc1          0.05727  0.2508 -0.0729 -0.0995  0.06685  0.2103  0.0944  0.0833
+## sc1         -0.05727 -0.2508  0.0729  0.0995 -0.06685 -0.2103 -0.0944 -0.0833
 ## sc2          0.13696  0.3717  0.1846 -0.0930  0.00451  0.0628  0.0472  0.0810
 ## sc3          0.18765 -0.0310  0.1005  0.0760 -0.00290 -0.1956 -0.0898  0.1073
 ## sc4         -0.01589  0.0335 -0.1512 -0.0317 -0.12217  0.0835  0.0674  0.0504
@@ -234,7 +242,7 @@
 ## geology6     0.95852  0.7697  0.0359 -0.4193  0.30955  0.6599  0.4938  0.5605
 ##               gen25   gen26   gen27
 ## (intercept)  0.0902  1.0427  0.6591
-## sc1          0.1611  0.0384  0.1429
+## sc1         -0.1611 -0.0384 -0.1429
 ## sc2          0.0928  0.0432  0.1659
 ## sc3          0.0521  0.0551 -0.0474
 ## sc4         -0.0772 -0.0743  0.0349
@@ -246,7 +254,7 @@
 <div id="percent-of-variance-captured-by-components" class="section level1">
 <h1 class="hasAnchor">
 <a href="#percent-of-variance-captured-by-components" class="anchor"></a>Percent of variance captured by components</h1>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/screeplot.html">screeplot</a></span><span class="op">(</span><span class="va">genus.scglr</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Continuous limits supplied to discrete scale.
 ## Did you mean `limits = factor(...)` or `scale_*_continuous()`?</code></pre>
@@ -255,22 +263,22 @@
 <div id="correlation-plot-for-first-two-components" class="section level1">
 <h1 class="hasAnchor">
 <a href="#correlation-plot-for-first-two-components" class="anchor"></a>Correlation plot for first two components</h1>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">genus.scglr</span>, title<span class="op">=</span><span class="st">"Correlation plot showing covariates"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">genus.scglr</span>,predictors<span class="op">=</span><span class="cn">TRUE</span>,covariates<span class="op">=</span><span class="cn">FALSE</span>, title<span class="op">=</span><span class="st">"Correlation plot showing predictors"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">genus.scglr</span>, title<span class="op">=</span><span class="st">"Correlation plot showing covariates"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">genus.scglr</span>,predictors<span class="op">=</span><span class="cn">TRUE</span>,covariates<span class="op">=</span><span class="cn">FALSE</span>, title<span class="op">=</span><span class="st">"Correlation plot showing predictors"</span><span class="op">)</span></code></pre></div>
 <p><img src="SCGLR_files/figure-html/corr_plots-1.png" width="50%"><img src="SCGLR_files/figure-html/corr_plots-2.png" width="50%"></p>
 </div>
 <div id="comparing-combinations-of-components" class="section level1">
 <h1 class="hasAnchor">
 <a href="#comparing-combinations-of-components" class="anchor"></a>Comparing combinations of components</h1>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="va">genus.scglr</span>,ncol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p><img src="SCGLR_files/figure-html/pairplot-1.png" width="700"></p>
 </div>
 <div id="using-grouped-covariates-theme" class="section level1">
 <h1 class="hasAnchor">
 <a href="#using-grouped-covariates-theme" class="anchor"></a>Using grouped covariates (theme)</h1>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">genus</span><span class="op">)</span>
 <span class="va">n</span> <span class="op">&lt;-</span><span class="va">n</span><span class="op">[</span><span class="op">!</span><span class="va">n</span><span class="op">%in%</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"geology"</span>,<span class="st">"surface"</span>,<span class="st">"lon"</span>,<span class="st">"lat"</span>,<span class="st">"forest"</span>,<span class="st">"altitude"</span><span class="op">)</span><span class="op">]</span>
 <span class="va">ny</span> <span class="op">&lt;-</span> <span class="va">n</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span><span class="st">"^gen"</span>,<span class="va">n</span><span class="op">)</span><span class="op">]</span>    <span class="co"># Y &lt;- names that begins with "gen"</span>
@@ -303,15 +311,12 @@
 ##     pluvio_6 + pluvio_7 + pluvio_8 + pluvio_9 + pluvio_10 + pluvio_11 + 
 ##     pluvio_12 
 ##      A   =  geology</code></pre>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">testthm</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/scglrTheme.html">scglrTheme</a></span><span class="op">(</span><span class="va">form</span>,data<span class="op">=</span><span class="va">genus</span>,H<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>,family<span class="op">=</span><span class="st">"poisson"</span>,offset <span class="op">=</span> <span class="va">genus</span><span class="op">$</span><span class="va">surface</span><span class="op">)</span></code></pre></div>
-<pre><code>## Registered S3 method overwritten by 'ade4':
-##   method       from    
-##   print.nipals plsdepot</code></pre>
 <div id="specialized-screeplot-one-for-each-theme" class="section level2">
 <h2 class="hasAnchor">
 <a href="#specialized-screeplot-one-for-each-theme" class="anchor"></a>Specialized screeplot (one for each theme)</h2>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/screeplot.html">screeplot</a></span><span class="op">(</span><span class="va">testthm</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Continuous limits supplied to discrete scale.
 ## Did you mean `limits = factor(...)` or `scale_*_continuous()`?
@@ -323,8 +328,8 @@
 <div id="specialized-correlation-plot-one-for-each-theme" class="section level2">
 <h2 class="hasAnchor">
 <a href="#specialized-correlation-plot-one-for-each-theme" class="anchor"></a>Specialized correlation plot (one for each theme)</h2>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">testthm</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span><span class="op">(</span><span class="va">testthm</span><span class="op">)</span></code></pre></div>
 <p><img src="SCGLR_files/figure-html/theme_corr_plots-1.png" width="700"></p>
 </div>
 </div>

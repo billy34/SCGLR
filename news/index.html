@@ -81,7 +81,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -101,6 +101,12 @@
     <li>
       <a href="../articles/mixedSCGLR.html">Mixed SCGLR example</a>
     </li>
+    <li>
+      <a href="../articles/parallelization.html">How to use parallelization</a>
+    </li>
+    <li>
+      <a href="../articles/progression.html">How display progression</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -110,7 +116,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/SCnext/SCGLR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -136,13 +142,30 @@
 <a href="#version-309000-dev" class="anchor"></a>version 3.0.9000 (dev)<small> Unreleased </small>
 </h1>
 <ul>
-<li>fix bug happening when providing a single Y variable to sglrTheme (issue <a href='https://github.com/SCnext/SCGLR/issues/1'>#1</a>)</li>
+<li>fix bug happening when providing a single Y variable to <code>sglrTheme</code> (issue <a href='https://github.com/SCnext/SCGLR/issues/1'>#1</a>)</li>
 <li>allow to provide folds for cross validation defined by user (issue <a href='https://github.com/SCnext/SCGLR/issues/2'>#2</a>)</li>
 <li>individual beta and gamma for themes were not properly computed (issue <a href='https://github.com/SCnext/SCGLR/issues/5'>#5</a>)</li>
 <li>improve evaluation of linear predictors in <code>theme</code> function (issue <a href='https://github.com/SCnext/SCGLR/issues/8'>#8</a>)</li>
 <li>remove dependency on <code>expm</code> package (issue <a href='https://github.com/SCnext/SCGLR/issues/10'>#10</a>)</li>
-<li>preliminary integration of code from SCnext/mixedSCGLR written by Jocelyn Chauvet (issue <a href='https://github.com/SCnext/SCGLR/issues/11'>#11</a>)</li>
+<li>error message for lack of convergence were improved and <code>scglrCrossVal</code> no longer stops when a fold does not converge (issue <a href='https://github.com/SCnext/SCGLR/issues/12'>#12</a>)</li>
 </ul>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li>preliminary integration of code from <code>SCnext/mixedSCGLR</code> written by Jocelyn Chauvet (issue <a href='https://github.com/SCnext/SCGLR/issues/11'>#11</a>)</li>
+<li>moved parallelization to <code>future</code> framework. Need <code>future.apply</code> package (issue <a href='https://github.com/SCnext/SCGLR/issues/16'>#16</a>)</li>
+<li>added progress to <code>scglrCrossVal</code> and <code>scglrThemeBackward</code> functions using <code>progressr</code> package (issue <a href='https://github.com/SCnext/SCGLR/issues/17'>#17</a>)</li>
+</ul>
+</div>
+<div id="deprecations" class="section level2">
+<h2 class="hasAnchor">
+<a href="#deprecations" class="anchor"></a>Deprecations</h2>
+<ul>
+<li>parameter <code>nfolds</code> of <code>scglrCrossVal</code> as been renamed to <code>folds</code> and now accepts also vectors. For now a warning is issued and provided value is used but update your code as it will be removed in a next version.</li>
+<li>parameter <code>mc.cores</code> of <code>scglrCrossVal</code> is now deprecated as of the move to <code>future</code> framework for parallelization.</li>
+</ul>
+</div>
 </div>
     <div id="version-30" class="section level1">
 <h1 class="page-header" data-toc-text="3.0">
@@ -153,8 +176,14 @@
 <li>added <code>scglrTheme</code> and <code>scglrThemeBackward</code> to handle theme oriented selection</li>
 <li>reworked <code>multivariateFormula</code> to handle themes</li>
 <li>added new plots targeting themes</li>
+</ul>
+<div id="deprecations-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#deprecations-1" class="anchor"></a>Deprecations</h2>
+<ul>
 <li>deprecated <code>barplot</code> in favor of <code>screeplot</code> (same parameters)</li>
 </ul>
+</div>
 </div>
     <div id="version-21" class="section level1">
 <h1 class="page-header" data-toc-text="2.1">
